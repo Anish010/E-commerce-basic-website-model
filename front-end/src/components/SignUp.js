@@ -1,8 +1,9 @@
-import React from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import React, { useState } from "react";
 
 const SignUp = () => {
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   return (
     <div className="register">
       <h1>Register</h1>
