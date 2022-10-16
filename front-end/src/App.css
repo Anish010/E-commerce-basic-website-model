@@ -4,9 +4,9 @@
 
 .inputBox{
   display: block;
-  margin:25px;
+  margin:25px auto;
   padding:7px;
-  width:300px;
+  width:500px;
   border : 1px solid skyblue;
 }
 .nav-ul li{
@@ -21,7 +21,7 @@
 }
 
 .appButton {
-  width: 150px;
+  width: 300px;
   background-color: skyblue;
   border: none;
   padding: 10px;
