@@ -1,13 +1,20 @@
 .App {
   text-align: center;
 }
-
 .inputBox{
   display: block;
   margin:25px auto;
   padding:7px;
   width:500px;
   border : 1px solid skyblue;
+}
+
+.register{
+  margin-top: 40px;
+}
+
+.login{
+  margin-top: 40px;
 }
 .nav-ul li{
   display : inline-block;
