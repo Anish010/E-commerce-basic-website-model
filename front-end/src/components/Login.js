@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  useEffect(() => {
+    const auth = localStorage.getItem("user");
+    if (auth) {
+      navigate("/");
+    }
+  }, []);
   const handleLogin = async () => {
     // console.log(email, password);
     let result = await fetch("http://localhost:5000/login", {
@@ -20,6 +26,10 @@ const Login = () => {
     } else {
       alert("Please enter correct login details.");
     }
+  };
+
+  const navigateSignUp = () => {
+    navigate("/signup");
   };
   return (
     <div className="login">
@@ -41,6 +51,11 @@ const Login = () => {
       <button className="appButton" type="button" onClick={handleLogin}>
         Login
       </button>
+      <div>
+        <button className="appButton" type="button" onClick={navigateSignUp}>
+          SignUp
+        </button>
+      </div>
     </div>
   );
 };

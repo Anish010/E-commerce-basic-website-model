@@ -11,7 +11,7 @@ const SignUp = () => {
     if (auth) {
       navigate("/");
     }
-  });
+  }, []);
 
   //integrating API
   const collectData = async () => {
