@@ -15,7 +15,7 @@ const SignUp = () => {
 
   //integrating API
   const collectData = async () => {
-    console.warn(name, email, password);
+    //console.warn(name, email, password);
     let result = await fetch("http://localhost:5000/signup", {
       method: "post",
       body: JSON.stringify({ name, email, password }),
