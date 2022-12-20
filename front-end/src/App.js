@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import SignUp from "./components/SignUp";
+import AddProduct from "./components/AddProduct";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PrivateComponent from "./components/PrivateComponent";
 import Login from "./components/Login";
@@ -15,7 +16,7 @@ function App() {
         <Routes>
           <Route element={<PrivateComponent />}>
             <Route path="/" element={<h1>Home Page</h1>} />
-            <Route path="/add" element={<h1>Add page</h1>} />
+            <Route path="/add" element={<AddProduct />} />
             <Route path="/update" element={<h1>Update Page</h1>} />
             <Route path="/logout" element={<h1>Logout Page</h1>} />
             <Route path="/profile" element={<h1>Profile Page</h1>} />

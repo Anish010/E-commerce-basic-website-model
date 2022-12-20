@@ -5,7 +5,7 @@ require("./db/config");
 const cors = require("cors");
 //importing user file
 const User = require("./db/User");
-
+const Product = require("./db/Product");
 //make express in executable form
 const app = express();
 
@@ -34,5 +34,11 @@ app.post("/login", async (req, resp) => {
     resp.send({ result: "password or email is missing" });
   }
   //since we don't want password we are removing it. )thats why we used select("-passoword"). Minus here remove the password.
+});
+
+app.post("/add-product", async (req, resp) => {
+  let product = new Product(req.body);
+  let result = await product.save();
+  resp.send(result);
 });
 app.listen(5000);
