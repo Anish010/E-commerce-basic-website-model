@@ -32,22 +32,24 @@ const Login = () => {
     navigate("/signup");
   };
   return (
-    <div className="login">
-      <h1>Please Login !</h1>
-      <input
-        type="text"
-        className="inputBox"
-        placeholder="Enter Email"
-        onChange={(e) => setEmail(e.target.value)}
-        value={email}
-      />
-      <input
-        type="password"
-        className="inputBox"
-        placeholder="Enter Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+    <>
+      <div className="login">
+        <h1>Please Login !</h1>
+        <input
+          type="text"
+          className="inputBox"
+          placeholder="Enter Email"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
+        <input
+          type="password"
+          className="inputBox"
+          placeholder="Enter Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
       <button className="appButton" type="button" onClick={handleLogin}>
         Login
       </button>
@@ -56,7 +58,7 @@ const Login = () => {
           SignUp
         </button>
       </div>
-    </div>
+    </>
   );
 };
 export default Login;

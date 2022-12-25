@@ -1,9 +1,13 @@
-.App {
+/*.App {
   text-align: center;
+}
+*/
+.AddProduct{
+  margin-top: 50px;
 }
 .inputBox{
   display: block;
-  margin:25px auto;
+  margin:15px 30%;
   padding:7px;
   width:500px;
   border : 1px solid skyblue;
@@ -11,20 +15,29 @@
 
 .register{
   margin-top: 40px;
+  text-align: center;
 }
 
 .login{
   margin-top: 40px;
+  text-align: center;
 }
 .nav-ul li{
   display : inline-block;
   padding : 10px;
 }
 
+.input-error{
+  color: red;
+  margin-left: 390px;
+  margin-top: -20px;
+  display: block;
+}
+
 .nav-ul a{
   color :#fff;
-  padding : 5px;
-  text-decoration : none
+  padding: 5px;
+    text-decoration : none
 }
 
 .appButton {
@@ -32,7 +45,7 @@
   background-color: skyblue;
   border: none;
   padding: 10px;
-  margin: 10px;
+  margin:30px 0 0 500px;
   cursor: pointer;
   /* height: auto; */
 }

@@ -11,7 +11,6 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <h1>E - Commerce</h1>
         <Nav />
         <Routes>
           <Route element={<PrivateComponent />}>
