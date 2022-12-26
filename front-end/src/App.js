@@ -7,6 +7,7 @@ import AddProduct from "./components/AddProduct";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PrivateComponent from "./components/PrivateComponent";
 import Login from "./components/Login";
+import ProductList from "./components/ProductList";
 function App() {
   return (
     <div className="App">
@@ -14,7 +15,7 @@ function App() {
         <Nav />
         <Routes>
           <Route element={<PrivateComponent />}>
-            <Route path="/" element={<h1>Home Page</h1>} />
+            <Route path="/" element={<ProductList />} />
             <Route path="/add" element={<AddProduct />} />
             <Route path="/update" element={<h1>Update Page</h1>} />
             <Route path="/logout" element={<h1>Logout Page</h1>} />
