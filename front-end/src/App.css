@@ -27,12 +27,16 @@
   display : inline-block;
   border : 1px solid skyblue;
   padding : 5px;
-  width : 150px;
+  width : 220px;
 }
 
 .product-list ul{
   margin:0;
 }
+.remember-me-box {
+  margin-left : -320px;
+}
+
 .login{
   margin-top: 40px;
   text-align: center;

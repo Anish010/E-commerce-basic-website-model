@@ -9,6 +9,7 @@ const Login = () => {
     if (auth) {
       navigate("/");
     }
+    // eslint-disable-next-line
   }, []);
   const handleLogin = async () => {
     // console.log(email, password);
