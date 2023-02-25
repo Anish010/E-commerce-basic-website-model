@@ -13,6 +13,15 @@
   border : 1px solid skyblue;
 }
 
+.search-product-box{
+  width: 400px;
+  margin: 20px;
+  height: 38px;
+  border: solid 1px skyblue;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
 .register{
   margin-top: 40px;
   text-align: center;
@@ -27,7 +36,19 @@
   display : inline-block;
   border : 1px solid skyblue;
   padding : 5px;
-  width : 220px;
+  width : 200px;
+}
+
+.logo{
+  width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    float: left;
+    margin-top: 3px;
+    margin-left: 10px;
+}
+.nav-right{
+  text-align: right;
 }
 
 .product-list ul{

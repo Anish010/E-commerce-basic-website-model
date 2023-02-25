@@ -71,4 +71,29 @@ app.put("/product/:id", async (req, resp) => {
   );
   resp.send(result);
 });
+
+app.get("/search/:key", async (req, resp) => {
+  const regex = new RegExp(req.params.key, "i");
+  let result = await Product.find({
+    $or: [
+      {
+        name: regex,
+      },
+      {
+        company: regex,
+      },
+      {
+        category: regex,
+      },
+    ],
+  });
+  resp.send(result);
+});
+
+/*app.get("/search/:key", async (req, resp) => {
+  let result = await Product.find({
+    name: { $regrex: "" + req.params.key },
+  });
+  resp.send(result);
+});*/
 app.listen(5000);
