@@ -1,1 +1,1 @@
-# E-commerce-basic-website-model
+# Inventory-Model
