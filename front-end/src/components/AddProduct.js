@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const AddProduct = () => {
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
   const [company, setCompany] = useState("");
   const [error, setError] = useState(false);
+
+  const navigate = useNavigate();
+
   const addProduct = async () => {
     if (!name || !price || !category || !company) {
       setError(true);
@@ -16,11 +20,13 @@ const AddProduct = () => {
       body: JSON.stringify({ name, price, category, company, userId }),
       headers: {
         "Content-Type": "application/json",
+        authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`,
       },
     });
 
     result = await result.json();
-    console.log(result);
+    console.warn(result);
+    navigate("/");
   };
   return (
     <div className="AddProduct">
