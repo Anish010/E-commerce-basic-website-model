@@ -9,24 +9,29 @@ const Nav = () => {
     navigate("/signup");
   };
   return (
-    <div>
-      <img
-        src="https://png.pngtree.com/png-clipart/20190904/original/pngtree-red-shopping-cart-icon-png-free-illustration-png-image_4480557.jpg"
-        alt="logo"
-        className="logo"
-      />
+    <div className="nav-bar">
+      <Link to="/home">
+        <img
+          src="https://vantageid.com/wp-content/uploads/2020/10/icon-blue-bg-inventory.svg"
+          className="logo"
+        />
+      </Link>
+
       {auth ? (
         <ul className="nav-ul">
-          <li>
-            <Link to="/">Home</Link>
+          <li className="nav-float-left">
+            <Link to="/home">Home</Link>
           </li>
-          <li>
+          <li className="nav-float-left">
+            <Link to="/">Inventory</Link>
+          </li>
+          <li className="nav-float-left">
             <Link to="/add">Add Product</Link>
           </li>
-          <li>
+          <li className="nav-float-right">
             <Link to="/profile">Profile</Link>
           </li>
-          <li>
+          <li className="nav-float-right">
             <Link onClick={logout} to="/signup">
               Logout
             </Link>

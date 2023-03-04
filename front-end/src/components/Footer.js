@@ -1,9 +1,11 @@
-import React from 'react';
+import React from "react";
 
-const Footer =() =>{
-    return(
-        <div className="Footer"><h3>Footer</h3></div>
-        )
-}
+const Footer = () => {
+  return (
+    <div className="Footer">
+      <p>© Anish Kumar Mohanty</p>
+    </div>
+  );
+};
 
 export default Footer;

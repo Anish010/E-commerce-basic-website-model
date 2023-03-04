@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { MDBContainer, MDBInput } from "mdb-react-ui-kit";
+import Button from "react-bootstrap/Button";
 const SignUp = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -32,35 +33,41 @@ const SignUp = () => {
   };
 
   return (
-    <>
-      <div className="register">
-        <h1>Register</h1>
-        <input
-          className="inputBox"
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Enter Name"
-        />
-        <input
-          className="inputBox"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter Email"
-        />
-        <input
-          className="inputBox"
-          type="password"
-          placeholder="Enter Passoword"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-      <button className="appButton" type="button" onClick={collectData}>
+    <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+      <MDBInput
+        wrapperClass="mb-4"
+        id="signup-form1"
+        type="text"
+        placeholder="Enter Full Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <MDBInput
+        wrapperClass="mb-4"
+        id="signup-form2"
+        type="email"
+        placeholder="Enter email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <MDBInput
+        wrapperClass="mb-4"
+        id="signup-form3"
+        type="password"
+        placeholder="Enter password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+
+      <Button
+        variant="primary"
+        size="md"
+        style={{ marginBottom: "10px" }}
+        onClick={collectData}
+      >
         Sign Up
-      </button>
-    </>
+      </Button>
+    </MDBContainer>
   );
 };
 

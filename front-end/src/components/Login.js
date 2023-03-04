@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { MDBContainer, MDBInput } from "mdb-react-ui-kit";
+import Button from "react-bootstrap/Button";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -34,33 +36,42 @@ const Login = () => {
     navigate("/signup");
   };
   return (
-    <>
-      <div className="login">
-        <h1>Please Login !</h1>
-        <input
-          type="text"
-          className="inputBox"
-          placeholder="Enter Email"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-        />
-        <input
-          type="password"
-          className="inputBox"
-          placeholder="Enter Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+    <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+      <MDBInput
+        wrapperClass="mb-4"
+        id="form1"
+        type="email"
+        placeholder="Enter email"
+        onChange={(e) => setEmail(e.target.value)}
+        value={email}
+      />
+      <MDBInput
+        wrapperClass="mb-4"
+        id="form2"
+        type="password"
+        placeholder="Enter password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+
+      <Button
+        variant="primary"
+        size="md"
+        style={{ marginBottom: "10px" }}
+        onClick={handleLogin}
+      >
+        Sign In
+      </Button>
+
+      <div className="text-center">
+        <p>
+          Not a member?{" "}
+          <a href="#!" onClick={navigateSignUp}>
+            Register
+          </a>
+        </p>
       </div>
-      <button className="appButton" type="button" onClick={handleLogin}>
-        Login
-      </button>
-      <div>
-        <button className="appButton" type="button" onClick={navigateSignUp}>
-          SignUp
-        </button>
-      </div>
-    </>
+    </MDBContainer>
   );
 };
 export default Login;

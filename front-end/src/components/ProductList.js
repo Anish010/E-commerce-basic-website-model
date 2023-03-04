@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { MDBCol } from "mdbreact";
+import Table from "react-bootstrap/Table";
+import { MdDelete, MdModeEditOutline } from "react-icons/md";
 function ProductList() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -47,40 +50,67 @@ function ProductList() {
   };
 
   return (
-    <div className="product-list">
-      <h3>Product List</h3>
-      <input
-        type=""
-        className="search-product-box"
-        placeholder="Search for products"
-        onChange={searchHandle}
-      />
-      <ul>
-        <li>S. No</li>
-        <li>Name</li>
-        <li>Price</li>
-        <li>Category</li>
-        <li>Company</li>
-        <li>Operation</li>
-      </ul>
-      {products.length > 0 ? (
-        products.map((item, index) => (
-          <ul>
-            <li>{index}</li>
-            <li>{item.name}</li>
-            <li>${item.price}</li>
-            <li>{item.category}</li>
-            <li>{item.company}</li>
-            <li>
-              <button onClick={() => deleteProduct(item._id)}>Delete</button>
-              <Link to={`/update/${item._id}`}>Update</Link>
-            </li>
-          </ul>
-        ))
-      ) : (
-        <h1>No Products Found</h1>
-      )}
-    </div>
+    <>
+      <div className="product-list">
+        <MDBCol
+          className="search-product-box "
+          style={{ marginBottom: "20px" }}
+        >
+          <input
+            className="form-control form-control-sm input-search"
+            type="text"
+            style={{
+              backgroundColor: "#a8e4f5",
+              color: "black",
+              fontWeight: "bold",
+              fontSize: "15px",
+            }}
+            placeholder="Search"
+            aria-label="Search"
+            onChange={searchHandle}
+          />
+        </MDBCol>
+        <div className="item-list">
+          <Table bordered hover>
+            <thead style={{ position: "sticky", top: "0" }}>
+              <>
+                <th>#</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Company</th>
+                <th>Action</th>
+              </>
+            </thead>
+
+            <tbody>
+              {products.length > 0 ? (
+                products.map((item, index) => (
+                  <tr>
+                    <td>{index + 1}</td>
+                    <td>{item.name}</td>
+                    <td>${item.price}</td>
+                    <td>{item.category}</td>
+                    <td>{item.company}</td>
+                    <td>
+                      <MdDelete
+                        style={{ fontSize: "25px" }}
+                        onClick={() => deleteProduct(item._id)}
+                      />
+                      <Link to={`/update/${item._id}`}>
+                        <MdModeEditOutline style={{ fontSize: "25px" }} />
+                      </Link>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <h1>No Products Found</h1>
+              )}
+            </tbody>
+          </Table>
+        </div>
+      </div>
+    </>
   );
 }
 

@@ -16,6 +16,7 @@ function App() {
         <Nav />
         <Routes>
           <Route element={<PrivateComponent />}>
+            <Route path="/home" element={<h1>Home Page</h1>} />
             <Route path="/" element={<ProductList />} />
             <Route path="/add" element={<AddProduct />} />
             <Route path="/update/:id" element={<UpdateProduct />} />
