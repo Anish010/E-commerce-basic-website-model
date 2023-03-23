@@ -10,6 +10,7 @@ const UpdateProduct = () => {
 
   useEffect(() => {
     getProductDetails();
+    // eslint-disable-next-line
   }, []);
 
   const getProductDetails = async () => {
@@ -54,7 +55,7 @@ const UpdateProduct = () => {
         placeholder="Enter Product Name"
       />
 
-      <i class="fa fa-inr"></i>
+      <i className="fa fa-inr"></i>
       <input
         className="inputBox"
         type="text"

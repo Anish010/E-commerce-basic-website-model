@@ -7,15 +7,26 @@ function ProductList() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     getProducts();
+    // eslint-disable-next-line
   }, []);
 
+  function removeObjectWithId(arr, id) {
+    return arr.filter((obj) => obj.userId === id);
+  }
+
   const getProducts = async () => {
+    const auth = localStorage.getItem("user");
+    if (auth) {
+      var id = JSON.parse(localStorage.getItem("user"))._id;
+    }
     let result = await fetch("http://localhost:5000/products", {
       headers: {
         authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`,
       },
     });
+
     result = await result.json();
+    result = removeObjectWithId(result, id);
     setProducts(result);
   };
 
@@ -73,14 +84,14 @@ function ProductList() {
         <div className="item-list">
           <Table bordered hover>
             <thead style={{ position: "sticky", top: "0" }}>
-              <>
+              <tr>
                 <th>#</th>
                 <th>Name</th>
                 <th>Price</th>
                 <th>Category</th>
                 <th>Company</th>
                 <th>Action</th>
-              </>
+              </tr>
             </thead>
 
             <tbody>
@@ -104,7 +115,9 @@ function ProductList() {
                   </tr>
                 ))
               ) : (
-                <h1>No Products Found</h1>
+                <tr>
+                  <td>No products</td>
+                </tr>
               )}
             </tbody>
           </Table>

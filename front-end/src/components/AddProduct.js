@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { MDBContainer, MDBInput } from "mdb-react-ui-kit";
+import Button from "react-bootstrap/Button";
 const AddProduct = () => {
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
@@ -15,7 +17,8 @@ const AddProduct = () => {
       return false;
     }
     const userId = JSON.parse(localStorage.getItem("user"))._id;
-    let result = await fetch("http://localhost:5000/add-product", {
+    console.log(userId);
+    let res = await fetch("http://localhost:5000/add-product", {
       method: "post",
       body: JSON.stringify({ name, price, category, company, userId }),
       headers: {
@@ -24,63 +27,76 @@ const AddProduct = () => {
       },
     });
 
-    result = await result.json();
-    console.warn(result);
+    res = await res.json();
+    console.warn(res);
     navigate("/");
   };
   return (
-    <div className="AddProduct">
-      <input
-        className="inputBox"
-        type="text"
-        value={name}
-        onChange={(e) => {
-          setName(e.target.value);
-        }}
-        placeholder="Enter Product Name"
-      />
-      {error && !name && <span className="input-error">Enter Valid Name</span>}
-      <i class="fa fa-inr"></i>
-      <input
-        className="inputBox"
-        type="text"
-        value={price}
-        onChange={(e) => {
-          setPrice(e.target.value);
-        }}
-        placeholder="Enter Product Price"
-      />
-
-      {error && !price && (
-        <span className="input-error">Enter Valid Price</span>
-      )}
-      <input
-        className="inputBox"
-        type="text"
-        value={category}
-        onChange={(e) => {
-          setCategory(e.target.value);
-        }}
-        placeholder="Enter Product Category"
-      />
-      {error && !category && (
-        <span className="input-error">Enter Valid Category</span>
-      )}
-      <input
-        className="inputBox"
-        type="text"
-        value={company}
-        onChange={(e) => {
-          setCompany(e.target.value);
-        }}
-        placeholder="Enter Product Company"
-      />
-      {error && !company && (
-        <span className="input-error">Enter Valid Company</span>
-      )}
-      <button onClick={addProduct} className="appButton" type="button">
-        Add Product
-      </button>
+    <div style={{ marginTop: "100px" }}>
+      <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
+        <MDBInput
+          className="addProductInput"
+          wrapperClass="mb-4"
+          type="text"
+          value={name}
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+          placeholder="Enter Product Name"
+        />
+        {error && !name && (
+          <span className="input-error">Enter Valid Name</span>
+        )}
+        <i className="fa fa-inr"></i>
+        <MDBInput
+          className="addProductInput"
+          wrapperClass="mb-4"
+          type="text"
+          value={price}
+          onChange={(e) => {
+            setPrice(e.target.value);
+          }}
+          placeholder="Enter Product Price"
+        />
+        {error && !price && (
+          <span className="input-error">Enter Valid Price</span>
+        )}
+        <MDBInput
+          className="addProductInput"
+          wrapperClass="mb-4"
+          type="text"
+          value={category}
+          onChange={(e) => {
+            setCategory(e.target.value);
+          }}
+          placeholder="Enter Product Category"
+        />
+        {error && !category && (
+          <span className="input-error">Enter Valid Category</span>
+        )}
+        <MDBInput
+          className="addProductInput"
+          wrapperClass="mb-4"
+          type="text"
+          value={company}
+          onChange={(e) => {
+            setCompany(e.target.value);
+          }}
+          placeholder="Enter Product Company"
+        />
+        {error && !company && (
+          <span className="input-error">Enter Valid Company</span>
+        )}
+        <Button
+          className="appButton"
+          variant="primary"
+          size="md"
+          style={{ marginBottom: "10px" }}
+          onClick={addProduct}
+        >
+          Add Product
+        </Button>
+      </MDBContainer>
     </div>
   );
 };

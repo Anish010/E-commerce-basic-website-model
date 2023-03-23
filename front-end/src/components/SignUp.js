@@ -26,9 +26,10 @@ const SignUp = () => {
     });
     result = await result.json();
     console.warn(result);
-    localStorage.setItem("user", JSON.stringify(result));
+    //localStorage.setItem("user", JSON.stringify(result));
+    //localStorage.setItem("token", JSON.stringify(result.auth));
     if (result) {
-      navigate("/");
+      navigate("/login");
     }
   };
 
@@ -36,7 +37,6 @@ const SignUp = () => {
     <MDBContainer className="p-3 my-5 d-flex flex-column w-50">
       <MDBInput
         wrapperClass="mb-4"
-        id="signup-form1"
         type="text"
         placeholder="Enter Full Name"
         value={name}
@@ -44,7 +44,6 @@ const SignUp = () => {
       />
       <MDBInput
         wrapperClass="mb-4"
-        id="signup-form2"
         type="email"
         placeholder="Enter email"
         value={email}
@@ -52,7 +51,6 @@ const SignUp = () => {
       />
       <MDBInput
         wrapperClass="mb-4"
-        id="signup-form3"
         type="password"
         placeholder="Enter password"
         value={password}
@@ -60,6 +58,7 @@ const SignUp = () => {
       />
 
       <Button
+        className="appButton"
         variant="primary"
         size="md"
         style={{ marginBottom: "10px" }}

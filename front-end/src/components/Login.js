@@ -55,6 +55,7 @@ const Login = () => {
       />
 
       <Button
+        className="appButton"
         variant="primary"
         size="md"
         style={{ marginBottom: "10px" }}

@@ -25,7 +25,7 @@ app.post("/signup", async (req, resp) => {
     if (err) {
       resp.send({ result: "Something went wrong. Try Again !" });
     }
-    resp.send({ result, auth: token });
+    resp.send({ user, auth: token });
   });
 });
 
