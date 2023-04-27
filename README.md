@@ -51,10 +51,10 @@ Used Bootstrap framework for the design of the app
 ![Dekstop Design preview for Login Page](./Screenshots/Login.png)Login Page
 </br>
 
-![Dekstop Design preview for Search Page](./Screenshots/Search.png)Search Page
+![Dekstop Design preview for Search Page](./Screenshots/search.png)Search Page
 </br>
 
-![Dekstop Design preview for SignUp Page](./Screenshots/SignUp.png) SignUp Page
+![Dekstop Design preview for SignUp Page](./Screenshots/Signup.png) SignUp Page
 </br>
 
 ### Technical Skills
